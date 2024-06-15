@@ -87,7 +87,7 @@
   <script>
     // Initialize ChatGPT API integration
     document.addEventListener('DOMContentLoaded', () => {
-      const apiKey = 'YOUR_API_KEY'; // Replace with your actual API key
+      const apiKey = 'pat_kipzplEWANGQ4eUtBt1sfUTiiU4O0yLHUJ2Tl3dP2GomLApaA07gUzJyxPfsRkrH'; // Replace with your actual API key
       const messagesContainer = document.getElementById('messages');
       const messageInput = document.getElementById('messageInput');
       const sendButton = document.getElementById('sendButton');
@@ -95,11 +95,11 @@
       // Function to send a message to ChatGPT API
       async function sendMessageToChatGPT(message) {
         try {
-          const response = await fetch('https://api.chatgpt.com/v1/generate', {
+          const response = await fetch('https://api.coze.com/open_api/v2/chat', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
-              'Authorization': `Bearer ${apiKey}`
+              'Authorization': `Bearer ${pat_kipzplEWANGQ4eUtBt1sfUTiiU4O0yLHUJ2Tl3dP2GomLApaA07gUzJyxPfsRkrH}`
             },
             body: JSON.stringify({
               model: 'gpt-3.5-turbo',
