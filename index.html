@@ -83,11 +83,11 @@
     </div>
   </div>
 
-  <script src="/socket.io/socket.io.js"></script>
+  <script src="https://sf-cdn.coze.com/obj/unpkg-va/flow-platform/chat-app-sdk/0.1.0-beta.4/libs/oversea/index.js"></script>
   <script>
     // Initialize ChatGPT API integration
     document.addEventListener('DOMContentLoaded', () => {
-      const apiKey = 'pat_kipzplEWANGQ4eUtBt1sfUTiiU4O0yLHUJ2Tl3dP2GomLApaA07gUzJyxPfsRkrH'; // Replace with your actual API key
+      const apiKey = '7377386362540228613'; // Replace with your actual API key
       const messagesContainer = document.getElementById('messages');
       const messageInput = document.getElementById('messageInput');
       const sendButton = document.getElementById('sendButton');
@@ -95,21 +95,17 @@
       // Function to send a message to ChatGPT API
       async function sendMessageToChatGPT(message) {
         try {
-          const response = await fetch('https://api.coze.com/open_api/v2/chat', {
+          const response = await fetch('https://sf-cdn.coze.com/obj/unpkg-va/flow-platform/chat-app-sdk/0.1.0-beta.4/libs/oversea/index.js', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
-              'Authorization': `Bearer ${apiKey}`
+              'Authorization': `Bearer ${7377386362540228613}`
             },
             body: JSON.stringify({
-              model: 'gpt-3.5-turbo',
+              model: 'turbo',
               messages: [{ role: 'user', content: message }]
             })
           });
-
-          if (!response.ok) {
-            throw new Error('Failed to retrieve response.');
-          }
 
           const data = await response.json();
           if (data && data.choices && data.choices.length > 0) {
