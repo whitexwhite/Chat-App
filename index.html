@@ -85,22 +85,29 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const apiKey = 'pat_nOUxtVbjPXrW6vpFB0J8PaBkjBReUi2KhRpnIQO4ioRQbsr7zVvzPPo389fPzv6T';
+      const apiKey = 'pat_zpdrntrHUgMyleyVye5j4JbjXUflkFo6L1Yv1nWbzPzHfUIVLRiKjx6SbIPruOLE'; // Replace with your actual API key
+      const botId = '7377386362540228613'; // Replace with your actual Bot ID
+      const userId = '7377386362540228613'; // Replace with your user ID or manage it as needed
+      const conversationId = '7377386362540228613'; // Replace with your conversation ID or manage it as needed
+
       const messagesContainer = document.getElementById('messages');
       const messageInput = document.getElementById('messageInput');
       const sendButton = document.getElementById('sendButton');
 
       async function sendMessageToChatGPT(message) {
         try {
-          const response = await fetch('https://www.coze.com/space/7371597853996826630/bot/7377386362540228613', {
+          const response = await fetch('https://api.coze.com/open_api/v2/chat', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
               'Authorization': `Bearer ${apiKey}`
             },
             body: JSON.stringify({
-              model: 'gpt-3.5-turbo',
-              messages: [{ role: 'user', content: message }]
+              conversation_id: conversationId,
+              bot_id: botId,
+              user: userId,
+              query: message,
+              stream: false
             })
           });
 
