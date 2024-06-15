@@ -86,9 +86,9 @@
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const apiKey = 'pat_zpdrntrHUgMyleyVye5j4JbjXUflkFo6L1Yv1nWbzPzHfUIVLRiKjx6SbIPruOLE'; // Replace with your actual API key
-      const botId = 'pat_zpdrntrHUgMyleyVye5j4JbjXUflkFo6L1Yv1nWbzPzHfUIVLRiKjx6SbIPruOLE'; // Replace with your actual Bot ID
-      const userId = 'pat_zpdrntrHUgMyleyVye5j4JbjXUflkFo6L1Yv1nWbzPzHfUIVLRiKjx6SbIPruOLE'; // Replace with your user ID or manage it as needed
-      const conversationId = 'pat_zpdrntrHUgMyleyVye5j4JbjXUflkFo6L1Yv1nWbzPzHfUIVLRiKjx6SbIPruOLE'; // Replace with your conversation ID or manage it as needed
+      const botId = 'YOUR_BOT_ID'; // Replace with your actual Bot ID
+      const userId = 'YOUR_USER_ID'; // Replace with your user ID or manage it as needed
+      const conversationId = 'YOUR_CONVERSATION_ID'; // Replace with your conversation ID or manage it as needed
 
       const messagesContainer = document.getElementById('messages');
       const messageInput = document.getElementById('messageInput');
@@ -100,7 +100,7 @@
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
-              'Authorization': `Bearer ${pat_zpdrntrHUgMyleyVye5j4JbjXUflkFo6L1Yv1nWbzPzHfUIVLRiKjx6SbIPruOLE}`
+              'Authorization': `Bearer ${apiKey}`
             },
             body: JSON.stringify({
               conversation_id: conversationId,
