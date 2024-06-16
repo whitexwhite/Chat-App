@@ -92,22 +92,20 @@
             <button id="sendButton" class="send-button">Send</button>
         </div>
     </div>
-
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const messagesContainer = document.getElementById('messages');
             const messageInput = document.getElementById('messageInput');
             const sendButton = document.getElementById('sendButton');
 
-            const token = 'pat_zpdrntrHUgMyleyVye5j4JbjXUflkFo6L1Yv1nWbzPzHfUIVLRiKjx6SbIPruOLE'; // Replace with your actual token
-
             async function sendMessageToChatGPT(message) {
                 try {
-                    const response = await fetch('http://localhost:3000/chat', {
+                    console.log('Sending message to server:', message);
+                    const response = await fetch('https://api.coze.com/open_api/v2/chat', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
-                            'Authorization': `Bearer ${token}`
+                            'Authorization': 'pat_zpdrntrHUgMyleyVye5j4JbjXUflkFo6L1Yv1nWbzPzHfUIVLRiKjx6SbIPruOLE' // Add the token here
                         },
                         body: JSON.stringify({
                             message
@@ -115,10 +113,11 @@
                     });
 
                     if (!response.ok) {
-                        throw new Error('Failed to retrieve response.');
+                        throw new Error(`Failed to retrieve response: ${response.statusText}`);
                     }
 
                     const data = await response.json();
+                    console.log('Received response from server:', data);
                     appendMessage(data.message, 'bot-message');
                 } catch (error) {
                     console.error('Error fetching chatbot response:', error);
@@ -152,5 +151,4 @@
         });
     </script>
 </body>
-
 </html>
