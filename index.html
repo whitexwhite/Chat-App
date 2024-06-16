@@ -105,7 +105,7 @@
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
-                            'Authorization': 'pat_zpdrntrHUgMyleyVye5j4JbjXUflkFo6L1Yv1nWbzPzHfUIVLRiKjx6SbIPruOLE' // Add the token here
+                            'Authorization': 'Bearer pat_zpdrntrHUgMyleyVye5j4JbjXUflkFo6L1Yv1nWbzPzHfUIVLRiKjx6SbIPruOLE' // Add the token here
                         },
                         body: JSON.stringify({
                             message
@@ -113,6 +113,8 @@
                     });
 
                     if (!response.ok) {
+                        const errorText = await response.text();
+                        console.error(`Error ${response.status}: ${errorText}`);
                         throw new Error(`Failed to retrieve response: ${response.statusText}`);
                     }
 
@@ -151,4 +153,5 @@
         });
     </script>
 </body>
+
 </html>
